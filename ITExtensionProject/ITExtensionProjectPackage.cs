@@ -4,7 +4,7 @@ using System.Threading;
 using Microsoft.VisualStudio.Shell;
 using Task = System.Threading.Tasks.Task;
 
-namespace VSExtension
+namespace ITExtensionProject
 {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
@@ -24,13 +24,13 @@ namespace VSExtension
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(VSExtensionPackage.PackageGuidString)]
-    public sealed class VSExtensionPackage : AsyncPackage
+    [Guid(ITExtensionProjectPackage.PackageGuidString)]
+    public sealed class ITExtensionProjectPackage : AsyncPackage
     {
         /// <summary>
-        /// VSExtensionPackage GUID string.
+        /// ITExtensionProjectPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "447f095e-e930-4969-8ebb-242e089c8905";
+        public const string PackageGuidString = "c7f8ff0d-4164-4538-aef1-8b859a3ff7d7";
 
         #region Package Members
 
