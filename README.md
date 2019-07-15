@@ -17,3 +17,9 @@ the first acceptable release would be:
 #### Good to have:
 - Smart enough to look forward and backward to complete the buffer as a valid expression.
 - Setting dialog under `Tools` context menu
+
+
+
+###### Reference
+- https://michaelscodingspot.com/visual-studio-2017-extension-development-tutorial-part-2-add-menu-item/
+- https://docs.microsoft.com/en-us/visualstudio/extensibility/extensibility-hello-world?view=vs-2019
