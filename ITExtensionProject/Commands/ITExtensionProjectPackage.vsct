@@ -15,10 +15,10 @@
         defining some of the constants that we will use inside the file. -->
 
   <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
-  <Extern href="stdidcmd.h"/>
+  <Extern href="stdidcmd.h" />
 
   <!--This header contains the command ids for the menus provided by the shell. -->
-  <Extern href="vsshlids.h"/>
+  <Extern href="vsshlids.h" />
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
@@ -33,7 +33,7 @@
 
     <Menus>
       <Menu guid="guidITExtensionProjectPackageCmdSet" id="TopLevelMenu" priority="0x700" type="Menu">
-        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS"/>
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
         <Strings>
           <ButtonText>IT Menu</ButtonText>
           <CommandName>IT Extension Project</CommandName>
@@ -46,7 +46,10 @@
          must be a menu. -->
     <Groups>
       <Group guid="guidITExtensionProjectPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidITExtensionProjectPackageCmdSet" id="TopLevelMenu"/>
+        <Parent guid="guidITExtensionProjectPackageCmdSet" id="TopLevelMenu" />
+      </Group>
+      <Group guid="guidITExtensionProjectPackageCmdSet1" id="EditorContextMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
       </Group>
     </Groups>
 
@@ -68,6 +71,13 @@
           <ButtonText>Invoke ITCommand</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidITExtensionProjectPackageCmdSet1" id="cmdidDocumentCodeSpanCommand" priority="0x0100" type="Button">
+        <Parent guid="guidITExtensionProjectPackageCmdSet1" id="EditorContextMenuGroup" />
+        <!--<Icon guid="guidImages1" id="bmpPic1" />-->
+        <Strings>
+          <ButtonText>Document Span!</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
 
     <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
@@ -77,7 +87,8 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\ITCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+      <Bitmap guid="guidImages" href="Resources\ITCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <!--<Bitmap guid="guidImages1" href="Resources\DocumentCodeSpanCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />-->
     </Bitmaps>
   </Commands>
 
@@ -89,10 +100,24 @@
     <GuidSymbol name="guidITExtensionProjectPackageCmdSet" value="{98984908-2526-41f1-a08d-18142c8204d0}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="ITCommandId" value="0x0100" />
-      <IDSymbol name="TopLevelMenu" value="0x1021"/>
+      <IDSymbol name="TopLevelMenu" value="0x1021" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{d3e5411d-53f3-4bab-a3ae-dccbd76cd7cc}" >
+    <GuidSymbol name="guidImages" value="{d3e5411d-53f3-4bab-a3ae-dccbd76cd7cc}">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{2823e425-7a94-45f6-9f44-33d46193d38d}" name="guidITExtensionProjectPackageCmdSet1">
+      <IDSymbol value="4128" name="EditorContextMenuGroup" />
+      <IDSymbol value="256" name="cmdidDocumentCodeSpanCommand" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{6c8700dd-3dc9-4297-8881-c113a5882251}" name="guidImages1">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
