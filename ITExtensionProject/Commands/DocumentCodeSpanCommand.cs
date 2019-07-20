@@ -93,7 +93,6 @@ namespace ITExtensionProject.Commands
         private void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-
             // https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-provide-an-asynchronous-visual-studio-service?view=vs-2019
             _ = ProcessSelectionAsync();
         }
@@ -130,7 +129,7 @@ namespace ITExtensionProject.Commands
         private async Task<string> GetActiveFilePathAsync(Microsoft.VisualStudio.Shell.IAsyncServiceProvider serviceProvider)
         {
             // VSTHRD010 
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(this.package.DisposalToken);
 
             var applicationObject = await serviceProvider.GetServiceAsync<DTE, DTE2>();
             return applicationObject.ActiveDocument.FullName; 
