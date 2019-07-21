@@ -94,7 +94,10 @@ namespace ITExtensionProject.Commands
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             // https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-provide-an-asynchronous-visual-studio-service?view=vs-2019
-            _ = ProcessSelectionAsync();
+            // _ = ProcessSelectionAsync();
+
+            var n = new Dialog.AddDocumentationWindow();
+            n.ShowDialog();
         }
 
         private async Task ProcessSelectionAsync()
